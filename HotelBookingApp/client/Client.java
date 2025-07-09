@@ -63,35 +63,53 @@ public class Client {
     }
 
     private static void handleReservation(PrintWriter out, BufferedReader in, BufferedReader stdIn) throws IOException {
-        System.out.print("Check-in Date (yyyy/MM/dd): ");
+        // Step 1: Get available rooms
+        System.out.print("Enter Check-in Date (yyyy/MM/dd): ");
         String checkIn = stdIn.readLine();
-        System.out.print("Check-out Date (yyyy/MM/dd): ");
+        System.out.print("Enter Check-out Date (yyyy/MM/dd): ");
         String checkOut = stdIn.readLine();
 
-        out.println("RESERVE:" + checkIn + "," + checkOut);
+        out.println("GET_AVAILABLE_ROOMS:" + checkIn + "," + checkOut);
+        String serverResponse = in.readLine();
+        
+        if (serverResponse.startsWith("ERROR:")) {
+            System.out.println(serverResponse);
+            return;
+        }
+
+        String[] rooms = serverResponse.split(":")[1].split(",");
+        if (rooms.length == 0 || rooms[0].isEmpty()) {
+            System.out.println("Sorry, no rooms are available for the selected dates.");
+            return;
+        }
+
+        System.out.println("Available rooms: " + String.join(", ", rooms));
+        
+        // Step 2: Book a specific room
+        System.out.print("Enter a room number to book: ");
+        String roomNumber = stdIn.readLine();
+        
+        out.println("RESERVE:" + checkIn + "," + checkOut + "," + roomNumber);
         System.out.println(in.readLine().replace(";", "\n"));
     }
 
     private static void handleCheckIn(PrintWriter out, BufferedReader in, BufferedReader stdIn) throws IOException {
-        System.out.print("Reservation Number: ");
+        System.out.print("Enter Reservation Number: ");
         String reservationNumber = stdIn.readLine();
-
         out.println("CHECKIN:" + reservationNumber);
         System.out.println(in.readLine().replace(";", "\n"));
     }
 
     private static void handleCheckOut(PrintWriter out, BufferedReader in, BufferedReader stdIn) throws IOException {
-        System.out.print("Reservation Number: ");
+        System.out.print("Enter Reservation Number: ");
         String reservationNumber = stdIn.readLine();
-
         out.println("CHECKOUT:" + reservationNumber);
         System.out.println(in.readLine().replace(";", "\n"));
     }
 
     private static void handleCancellation(PrintWriter out, BufferedReader in, BufferedReader stdIn) throws IOException {
-        System.out.print("Reservation Number: ");
+        System.out.print("Enter Reservation Number: ");
         String reservationNumber = stdIn.readLine();
-
         out.println("CANCEL:" + reservationNumber);
         System.out.println(in.readLine().replace(";", "\n"));
     }

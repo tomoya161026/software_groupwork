@@ -15,19 +15,17 @@ import java.util.stream.Stream;
 
 public class InMemoryPaymentDao implements PaymentDao {
     private final Map<String, Payment> db = new ConcurrentHashMap<>();
-    // ★★★ 永続化のための設定を追加 ★★★
+    // --- Persistence settings ---
     private static final Path FILE_PATH = Paths.get("payments.jsonl");
     private static final Gson gson = new Gson();
 
     public InMemoryPaymentDao() {
-        // ★★★ サーバー起動時にファイルからデータを読み込む ★★★
         loadFromFile();
     }
 
     @Override
     public synchronized void save(Payment payment) {
         db.put(payment.getReservationNumber(), payment);
-        // ★★★ データ変更時にファイルへ書き込む ★★★
         persistToFile();
     }
 
@@ -36,10 +34,9 @@ public class InMemoryPaymentDao implements PaymentDao {
         return db.get(reservationNumber);
     }
 
-    // ★★★ ファイルからデータを読み込むメソッド ★★★
     private void loadFromFile() {
         if (!Files.exists(FILE_PATH)) {
-            System.out.println("支払いデータファイルが見つかりません。新しいファイルを作成します。");
+            System.out.println("[LOG] Payment data file not found. A new one will be created.");
             return;
         }
         try (Stream<String> lines = Files.lines(FILE_PATH)) {
@@ -48,16 +45,15 @@ public class InMemoryPaymentDao implements PaymentDao {
                     Payment payment = gson.fromJson(line, Payment.class);
                     db.put(payment.getReservationNumber(), payment);
                 } catch (JsonSyntaxException e) {
-                    System.err.println("JSONの解析に失敗しました: " + line);
+                    System.err.println("Failed to parse JSON from payments file: " + line);
                 }
             });
-            System.out.println(db.size() + "件の支払いデータをファイルから読み込みました。");
+            System.out.println("[LOG] Loaded " + db.size() + " payment records from file.");
         } catch (IOException e) {
-            System.err.println("支払いデータの読み込みに失敗しました: " + e.getMessage());
+            System.err.println("Failed to load payment data: " + e.getMessage());
         }
     }
 
-    // ★★★ メモリ上の全データをファイルに書き出すメソッド ★★★
     private void persistToFile() {
         try {
             List<String> jsonLines = db.values().stream()
@@ -65,7 +61,7 @@ public class InMemoryPaymentDao implements PaymentDao {
                     .collect(Collectors.toList());
             Files.write(FILE_PATH, jsonLines, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
         } catch (IOException e) {
-            System.err.println("支払いデータの書き込みに失敗しました: " + e.getMessage());
+            System.err.println("Failed to persist payment data: " + e.getMessage());
         }
     }
 }
