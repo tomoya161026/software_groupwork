@@ -1,0 +1,9 @@
+コンパイル
+javac -d bin -cp ".:lib/*" $(find . -name "*.java")
+
+サーバー
+java -cp "bin:lib/*" server.Server
+
+クライアント
+java -cp bin client.Client
+

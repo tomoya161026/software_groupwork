@@ -1,0 +1,4 @@
+{"reservationNumber":"1752038887671","roomNumber":"101","checkInDate":"Jul 16, 2025, 12:00:00 AM","checkOutDate":"Jul 18, 2025, 12:00:00 AM","status":"CANCELED"}
+{"reservationNumber":"1752038857407","roomNumber":"101","checkInDate":"Jul 11, 2025, 12:00:00 AM","checkOutDate":"Jul 14, 2025, 12:00:00 AM","status":"CHECKED_OUT"}
+{"reservationNumber":"1752038930876","roomNumber":"102","checkInDate":"Jul 16, 2025, 12:00:00 AM","checkOutDate":"Jul 19, 2025, 12:00:00 AM","status":"CHECKED_IN"}
+{"reservationNumber":"1752038914140","roomNumber":"201","checkInDate":"Jul 16, 2025, 12:00:00 AM","checkOutDate":"Jul 19, 2025, 12:00:00 AM","status":"CREATED"}
