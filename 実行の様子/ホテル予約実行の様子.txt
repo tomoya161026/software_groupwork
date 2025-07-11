@@ -1,0 +1,227 @@
+Last login: Wed Jul  9 10:35:07 on ttys145
+yamamotoryuta@Ryuta-2 ~ % cd HotelBookiingApp
+cd: no such file or directory: HotelBookiingApp
+yamamotoryuta@Ryuta-2 ~ % cd Downloads
+yamamotoryuta@Ryuta-2 Downloads % cd HotelBoolingApp
+cd: no such file or directory: HotelBoolingApp
+yamamotoryuta@Ryuta-2 Downloads % cd HotelBookingApp
+yamamotoryuta@Ryuta-2 HotelBookingApp % javac -d bin -cp ".:lib/*" $(find . -name "*.java")
+yamamotoryuta@Ryuta-2 HotelBookingApp % java -cp bin client.Client
+Welcome to the Hotel Booking System.
+
+--- Menu ---
+1. Make a Reservation
+2. Check In
+3. Check Out
+4. Cancel Reservation
+9. Exit
+> 1
+Enter Check-in Date (yyyy/MM/dd): 2025/07/15
+Enter Check-out Date (yyyy/MM/dd): 2025/07/18
+Available rooms: 101, 202, 103, 203, 104, 204, 105, 205
+Enter a room number to book: 205
+SUCCESS:Reservation complete.
+Reservation Number: 1752068909748
+Room Number: 205
+
+--- Menu ---
+1. Make a Reservation
+2. Check In
+3. Check Out
+4. Cancel Reservation
+9. Exit
+> 2
+Enter Reservation Number: 1752068909748
+SUCCESS:Check-in complete.
+Your room number is 205
+
+--- Menu ---
+1. Make a Reservation
+2. Check In
+3. Check Out
+4. Cancel Reservation
+9. Exit
+> 3
+Enter Reservation Number: 1752068909748
+SUCCESS:Check-out complete.
+The total amount is 30000 JPY.
+
+--- Menu ---
+1. Make a Reservation
+2. Check In
+3. Check Out
+4. Cancel Reservation
+9. Exit
+> 9
+Thank you for using our system.
+yamamotoryuta@Ryuta-2 HotelBookingApp % javac -d bin -cp ".:lib/*" $(find . -name "*.java")
+yamamotoryuta@Ryuta-2 HotelBookingApp % java -cp bin client.Client
+Welcome to the Hotel Booking System.
+
+--- Menu ---
+1. Make a Reservation
+2. Check In
+3. Check Out
+4. Cancel Reservation
+9. Exit
+> 1
+Enter Check-in Date (yyyy/MM/dd): 2025/07/11
+Enter Check-out Date (yyyy/MM/dd): 2025/07/20
+Available rooms: 101, 103, 104, 105, 202, 203, 204, 205
+Enter a room number to book: 101
+SUCCESS:Reservation complete.
+Reservation Number: 1752069240567
+Room Number: 101
+
+--- Menu ---
+1. Make a Reservation
+2. Check In
+3. Check Out
+4. Cancel Reservation
+9. Exit
+> 2
+Enter Reservation Number: 1752069240567
+SUCCESS:Check-in complete.
+Your room number is 101
+
+--- Menu ---
+1. Make a Reservation
+2. Check In
+3. Check Out
+4. Cancel Reservation
+9. Exit
+> 3
+Enter Reservation Number: 1752069240567
+SUCCESS:Check-out complete.
+The total amount is 90000 JPY.
+
+--- Menu ---
+1. Make a Reservation
+2. Check In
+3. Check Out
+4. Cancel Reservation
+9. Exit
+> 1
+Enter Check-in Date (yyyy/MM/dd): 2025/07/20
+Enter Check-out Date (yyyy/MM/dd): 2025/07/22
+Available rooms: 101, 102, 103, 104, 105, 201, 202, 203, 204, 205
+Enter a room number to book: 101
+SUCCESS:Reservation complete.
+Reservation Number: 1752069273547
+Room Number: 101
+
+--- Menu ---
+1. Make a Reservation
+2. Check In
+3. Check Out
+4. Cancel Reservation
+9. Exit
+> 4
+Enter Reservation Number: 1752069273547
+SUCCESS:Reservation canceled.
+
+--- Menu ---
+1. Make a Reservation
+2. Check In
+3. Check Out
+4. Cancel Reservation
+9. Exit
+> 1
+Enter Check-in Date (yyyy/MM/dd): 2025/07/21
+Enter Check-out Date (yyyy/MM/dd): 2025/07/23
+Available rooms: 101, 102, 103, 104, 105, 201, 202, 203, 204, 205
+Enter a room number to book: 101
+SUCCESS:Reservation complete.
+Reservation Number: 1752069293145
+Room Number: 101
+
+--- Menu ---
+1. Make a Reservation
+2. Check In
+3. Check Out
+4. Cancel Reservation
+9. Exit
+> 9
+Thank you for using our system.
+yamamotoryuta@Ryuta-2 HotelBookingApp % java -cp bin client.Client
+Welcome to the Hotel Booking System.
+
+--- Menu ---
+1. Make a Reservation
+2. Check In
+3. Check Out
+4. Cancel Reservation
+9. Exit
+> 1
+Enter Check-in Date (yyyy/MM/dd): 2025/07/14
+Enter Check-out Date (yyyy/MM/dd): 2025/07/17
+Available rooms: 101, 103, 104, 105, 202, 203, 204, 205
+Enter a room number to book: 103
+SUCCESS:Reservation complete.
+Reservation Number: 1752199271748
+Room Number: 103
+
+--- Menu ---
+1. Make a Reservation
+2. Check In
+3. Check Out
+4. Cancel Reservation
+9. Exit
+> 2
+Enter Reservation Number: 1752199271748
+SUCCESS:Check-in complete.
+Your room number is 103
+
+--- Menu ---
+1. Make a Reservation
+2. Check In
+3. Check Out
+4. Cancel Reservation
+9. Exit
+> 3
+Enter Reservation Number: 1752199271748
+SUCCESS:Check-out complete.
+The total amount is 30000 JPY.
+
+--- Menu ---
+1. Make a Reservation
+2. Check In
+3. Check Out
+4. Cancel Reservation
+9. Exit
+> 1
+Enter Check-in Date (yyyy/MM/dd): 2025/07/19
+Enter Check-out Date (yyyy/MM/dd): 2025/07/22
+Available rooms: 102, 103, 104, 105, 201, 202, 203, 204, 205
+Enter a room number to book: 105
+SUCCESS:Reservation complete.
+Reservation Number: 1752199311085
+Room Number: 105
+
+--- Menu ---
+1. Make a Reservation
+2. Check In
+3. Check Out
+4. Cancel Reservation
+9. Exit
+> 4
+Enter Reservation Number: 1752199311085
+SUCCESS:Reservation canceled.
+
+--- Menu ---
+1. Make a Reservation
+2. Check In
+3. Check Out
+4. Cancel Reservation
+9. Exit
+> 2
+Enter Reservation Number: 1752199311089
+ERROR:Reservation not found.
+
+--- Menu ---
+1. Make a Reservation
+2. Check In
+3. Check Out
+4. Cancel Reservation
+9. Exit
+> ^C%                                                                                                              yamamotoryuta@Ryuta-2 HotelBookingApp % 
